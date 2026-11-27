@@ -11,32 +11,27 @@
 <body>
 
 <div class="wrap">
-  <div class="top">
-    <div class="brand">
-      <span class="dots"><i></i><i></i><i class="dim"></i><i></i><i class="dim"></i><i></i><i></i><i class="dim"></i></span>
-      <h1>Shiv Shankar Gupta AI India</h1>
-    </div>
+
+  <div class="brand">
+    <span class="dots" aria-hidden="true"><i></i><i></i><i class="dim"></i><i></i><i class="dim"></i><i></i><i></i><i class="dim"></i></span>
+    <h1>Shiv Shankar Gupta AI India</h1>
   </div>
 
-  <nav class="menu">
-    <a href="index.html" class="on">Home</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-    <a href="usage.html">Usage Terms</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="greet">
+    <p class="hi" id="hi">Good evening</p>
+    <p class="clock" id="clock">5:32 PM</p>
+    <p class="welcome">Welcome to Shiv Shankar Gupta AI India.</p>
+  </div>
 
   <div class="rule"></div>
 
-  <section class="greet" aria-live="polite">
-    <p id="greetLine">Good evening.</p>
-    <p class="small" id="dateLine"></p>
-  </section>
+  <nav class="menu">
+    <a href="terms.html">Terms of Service</a>
+    <a href="usage.html">Usage Terms</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-  <section class="hero-title">
-    <h2>Shiv Shankar Gupta AI India</h2>
-    <div class="bar"></div>
-  </section>
 </div>
 
 <footer>
@@ -48,34 +43,24 @@
 
 <script>
 (function () {
-  var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-  var months = ["January","February","March","April","May","June",
-                "July","August","September","October","November","December"];
-  var greetEl = document.getElementById("greetLine");
-  var dateEl  = document.getElementById("dateLine");
+  var hi = document.getElementById("hi");
+  var clock = document.getElementById("clock");
 
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
 
   function tick() {
     var now = new Date();
     var h24 = now.getHours();
-    var greeting = h24 < 12 ? "Good morning" : (h24 < 17 ? "Good afternoon" : "Good evening");
+
+    hi.textContent = h24 < 12 ? "Good morning" : (h24 < 17 ? "Good afternoon" : "Good evening");
+
     var h12 = h24 % 12; if (h12 === 0) h12 = 12;
     var ampm = h24 < 12 ? "AM" : "PM";
-
-    var dayName = days[now.getDay()];
-    var dayNum = now.getDate();
-    var monthName = months[now.getMonth()];
-    var year = now.getFullYear();
-    var time = h12 + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds()) + " " + ampm;
-
-    greetEl.textContent = greeting + ". Today is " + dayName + ", " + dayNum + " " +
-                          monthName + " " + year + ", " + time + ". Welcome to Shiv Shankar Gupta AI India.";
-    dateEl.textContent = "The clock updates every second.";
+    clock.textContent = h12 + ":" + pad(now.getMinutes()) + " " + ampm;
   }
 
   tick();
-  setInterval(tick, 1000);
+  setInterval(tick, 15000);
 })();
 </script>
 
