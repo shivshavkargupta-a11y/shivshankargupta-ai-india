@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shiv Shankar Gupta AI India</title>
+<meta name="description" content="Shiv Shankar Gupta AI India — artificial intelligence that speaks every language.">
+<meta name="theme-color" content="#0a1c33">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <div class="brand">
+      <span class="dots"><i></i><i></i><i class="dim"></i><i></i><i class="dim"></i><i></i><i></i><i class="dim"></i></span>
+      <h1>Shiv Shankar Gupta AI India</h1>
+    </div>
+  </div>
+
+  <nav class="menu">
+    <a href="index.html" class="on">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="usage.html">Usage Terms</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="rule"></div>
+
+  <section class="greet" aria-live="polite">
+    <p id="greetLine">Good evening.</p>
+    <p class="small" id="dateLine"></p>
+  </section>
+
+  <section class="hero-title">
+    <h2>Shiv Shankar Gupta AI India</h2>
+    <div class="bar"></div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap row">
+    <span>&copy; Shiv Shankar Gupta AI India</span>
+    <span><a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var months = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+  var greetEl = document.getElementById("greetLine");
+  var dateEl  = document.getElementById("dateLine");
+
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+
+  function tick() {
+    var now = new Date();
+    var h24 = now.getHours();
+    var greeting = h24 < 12 ? "Good morning" : (h24 < 17 ? "Good afternoon" : "Good evening");
+    var h12 = h24 % 12; if (h12 === 0) h12 = 12;
+    var ampm = h24 < 12 ? "AM" : "PM";
+
+    var dayName = days[now.getDay()];
+    var dayNum = now.getDate();
+    var monthName = months[now.getMonth()];
+    var year = now.getFullYear();
+    var time = h12 + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds()) + " " + ampm;
+
+    greetEl.textContent = greeting + ". Today is " + dayName + ", " + dayNum + " " +
+                          monthName + " " + year + ", " + time + ". Welcome to Shiv Shankar Gupta AI India.";
+    dateEl.textContent = "The clock updates every second.";
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
+</body>
+</html>
