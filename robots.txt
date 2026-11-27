@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shivshavkargupta-a11y.github.io/shivshankargupta-ai-india/sitemap.xml
